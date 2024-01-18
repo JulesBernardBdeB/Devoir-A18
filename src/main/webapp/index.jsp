@@ -2,11 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+    <title>Calculatrice d'intérêts composé</title>
 </head>
 <body>
-<h1><%= "Hello World!" %></h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+
+<form action="/InterestRateCalculator" method="post">
+    <label for="principal">Principal: </label>
+    <input id="principal" type="number" min="1">
+
+    <label for="interest">Taux d'intérêt: </label>
+    <input id="interest" type="number" min="1">
+
+    <label for="years">Nombre d'année: </label>
+    <input id="years" type="number" min="1">
+
+    <label for="compounding">Période de composition: </label>
+    <input id="compounding" type="number" min="1">
+
+    <button type="submit">Calculer</button>
+</form>
+
+
 </body>
 </html>
