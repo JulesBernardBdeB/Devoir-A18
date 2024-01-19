@@ -2,28 +2,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculatrice d'intérêts composé</title>
+    <title>Calculatrice d'intérêts composés</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-blue-700">
 
-<form action="/InterestRateCalculator" method="post">
-    <label for="principal">Principal: </label>
-    <input id="principal" type="number" min="1" name="principal" value="${principal}">
+<div>
+    <div class="bg-white mx-auto text-center w-1/2 py-5 shadow-xl rounded-3xl my-96 max-w-2xl">
+        <h2 class="text-4xl font-semibold border-b pb-2 mx-6">Calculatrice d'intérêts composés</h2>
 
-    <label for="interest">Taux d'intérêt: </label>
-    <input id="interest" type="number" min="1" name="interest" value="${interest}">
+        <h3 class="bg-red-300 text-red-900 font-semibold text-xl w-80 rounded-lg my-2 mx-auto">${error}</h3>
+        <div>
+            <form action="/InterestRateCalculator" method="post">
 
-    <label for="years">Nombre d'année: </label>
-    <input id="years" type="number" min="1" name="years" value="${years}">
+                <div class="grid grid-cols-2 gap-4 my-5 mx-8">
 
-    <label for="compounding">Période de composition: </label>
-    <input id="compounding" type="number" min="1" name="compounding" value="${compounding}">
+                    <label for="principal" class="text-xl flex items-center">Principal: <span class="text-gray-500 mx-1">$</span></label>
+                    <input type="number" id="principal" name="principal" value="${principal}" class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2">
 
-    <button type="submit">Calculer</button>
-</form>
-<p>${error}</p>
-<p>Montant estimé: ${result}</p>
+                    <label for="interest" class="text-xl flex items-center">Taux d'intérêt:</label>
+                    <input type="number" id="interest" name="interest" min="1" max="100" value="${interest}" class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg  focus:outline-none focus:ring-2">
 
+                    <label for="years" class="text-xl flex items-center">Nombre d'années:</label>
+                    <input type="number" id="years" name="years" min="1" value="${years}" class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2">
 
+                    <label for="compounding" class="text-xl flex items-center">Composition par an: <span class="text-gray-500">(1 à 12)</span>:</label>
+                    <input type="number" id="compounding" name="compounding" min="1" max="12" value="${compounding}" class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg  focus:outline-none focus:ring-2">
+
+                </div>
+
+                <button type="submit" class="bg-blue-300 text-xl font-semibold px-4 py-1 rounded-lg hover:bg-blue-800 hover:text-white">Calculate</button><br><br>
+
+                <p class="text-3xl font-mono text-green-600">Montant estimé: ${result}</p>
+
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
