@@ -18,7 +18,8 @@ public class CalculatorServlet extends HttpServlet {
 
         String error;
 
-        if (Principal == null || Interest == null || Years == null || Compounding == null){
+        if (Principal == null || Interest == null || Years == null || Compounding == null || Principal.isBlank()
+                || Interest.isBlank() || Years.isBlank() || Compounding.isBlank()){
             error = "Un des champs est vide. Remplisser tout les champs.";
             request.setAttribute("error",error);
         }else{
